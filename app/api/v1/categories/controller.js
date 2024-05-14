@@ -36,7 +36,7 @@ const find = async (req, res, next) => {
         const result = await Categories.findOne({ _id: id });
 
         if (!result) {
-            return res.status(400).json({ message: 'Id categories tidak ditemukannn' });
+            return res.status(400).json({ message: 'Id categories tidak ditemukann' });
         }
 
         res.status(200).json({
