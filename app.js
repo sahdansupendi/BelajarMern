@@ -15,6 +15,9 @@ const paymentsRouter = require('./app/api/v1/payments/router');
 const ticketsCategoriesRouter = require('./app/api/v1/ticket-categories/router');
 const orderRouter = require('./app/api/v1/order/router');
 const participantsRouter = require('./app/api/v1/participants/router');
+// middlewares
+const notFoundMiddleware = require('./app/middlewares/not-found');
+const handleErrorMiddleware = require('./app/middlewares/handle-error');
 
 const v1 = '/api/v1/cms';
 
@@ -37,5 +40,8 @@ app.use(v1, paymentsRouter);
 app.use(v1, ticketsCategoriesRouter);
 app.use(v1, orderRouter);
 app.use(v1, participantsRouter);
+// middlewares
+app.use(notFoundMiddleware);
+app.use(handleErrorMiddleware);
 
 module.exports = app;
